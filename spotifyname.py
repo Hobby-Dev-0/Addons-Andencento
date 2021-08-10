@@ -115,7 +115,7 @@ async def dirtyfix():
 
 
 
-@borg.on(admin_cmd(pattern=f"ensp", allow_sudo=True))
+@borg.on(admin_cmd(pattern='ensp', allow_sudo=True))
 @borg.on(events.NewMessage(pattern=r"\.ensp ?(.*)", outgoing=True))
 async def set_biostgraph(setstbio):
     setrecursionlimit(700000)
@@ -129,7 +129,7 @@ async def set_biostgraph(setstbio):
 
 
 
-@borg.on(admin_cmd(pattern=f"disp", allow_sudo=True))
+@borg.on(admin_cmd(pattern='disp', allow_sudo=True))
 @borg.on(events.NewMessage(pattern=r"\.disp ?(.*)", outgoing=True))
 async def set_biodgraph(setdbio):
     global SPOTIFYCHECK

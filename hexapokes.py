@@ -25,16 +25,7 @@ async def _(event):
                 await event.delete()
             except YouBlockedUserError:
                 await event.edit("Error: unblock **@hexamonbot** and retry!")
-    elif "@" in sysarg:
-        async with borg.conversation(bot) as conv:
-            try:
-                await conv.send_message("/mypokemon " + sysarg)
-                audio = await conv.get_response()
-                await borg.send_message(event.chat_id, Pokes + audio.text)
-                await event.delete()
-            except YouBlockedUserError:
-                await event.edit("Error: unblock **@hexamonbot** and try again!")
-    elif "" in sysarg:
+    elif "@" in sysarg or "" in sysarg:
         async with borg.conversation(bot) as conv:
             try:
                 await conv.send_message("/mypokemon " + sysarg)

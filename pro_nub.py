@@ -18,7 +18,6 @@ from userbot.utils import admin_cmd
 
 
 @borg.on(admin_cmd("unoob"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -26,9 +25,9 @@ async def _(event):
         return
 
     animation_interval = 0.5
-    
 
-    animation_ttl = range(0, 9)
+
+    animation_ttl = range(9)
 
     await event.edit("You Noob")
 
@@ -52,7 +51,6 @@ async def _(event):
             
             
 @borg.on(admin_cmd("menoob"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -60,9 +58,9 @@ async def _(event):
         return
 
     animation_interval = 0.5
-    
 
-    animation_ttl = range(0, 9)
+
+    animation_ttl = range(9)
 
     await event.edit("Me Noob")
 
@@ -85,7 +83,6 @@ async def _(event):
         await asyncio.sleep(animation_interval) 
             
 @borg.on(admin_cmd("upro"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -93,10 +90,10 @@ async def _(event):
         return
 
     animation_interval = 0.5
-    
 
-    animation_ttl = range(0, 8)
-    
+
+    animation_ttl = range(8)
+
     await event.edit("You Pro")
 
     animation_chars = [
@@ -117,7 +114,6 @@ async def _(event):
         await asyncio.sleep(animation_interval)  
             
 @borg.on(admin_cmd("mepro"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -125,9 +121,9 @@ async def _(event):
         return
 
     animation_interval = 0.5
-    
 
-    animation_ttl = range(0, 8)
+
+    animation_ttl = range(8)
 
     await event.edit("Me Pro")
 

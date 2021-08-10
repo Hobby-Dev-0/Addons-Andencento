@@ -17,22 +17,20 @@ from . import CMD_HELP, bot
 @borg.on(admin_cmd(pattern=r"open", outgoing=True))
 async def _(event):
     b = await event.client.download_media(await event.get_reply_message())
-    a = open(b, "r")
-    c = a.read()
-    a.close()
+    with open(b, "r") as a:
+        c = a.read()
     a = await event.reply("Reading file...")
-    if len(c) >= 4096:            
-            await event.edit("output file too large lemme paste it 😜😜")#hehe
-            out = c
-            url = "https://del.dog/documents"
-            r = requests.post(url, data=out.encode("UTF-8")).json()
-            url = f"https://del.dog/{r['key']}"
-            await event.edit(
-                f" Output file is too large Not supported By Telegram\n**So Pasted to** [Dog Bin]({url}) 😁😁", link_preview=False)            
-            await a.delete()
+    if len(c) >= 4096:        
+        await event.edit("output file too large lemme paste it 😜😜")#hehe
+        out = c
+        url = "https://del.dog/documents"
+        r = requests.post(url, data=out.encode("UTF-8")).json()
+        url = f"https://del.dog/{r['key']}"
+        await event.edit(
+            f" Output file is too large Not supported By Telegram\n**So Pasted to** [Dog Bin]({url}) 😁😁", link_preview=False)
     else:
         await event.client.send_message(event.chat_id, f"{c}")
-        await a.delete()
+    await a.delete()
     os.remove(b)
 
 
@@ -76,29 +74,29 @@ async def danish(hehe):
     if hehe.reply_to_msg_id:
         reply_to_id = hehe.reply_to_msg_id
     cobra = await edit_or_reply(hehe, "Converting.....")
-    
-  
-    input_str = "dc.jpeg"
+
+
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if cobra.reply_to_msg_id:
         start = datetime.now()
+        input_str = "dc.jpeg"
         file_name = input_str
         reply_message = await cobra.get_reply_message()
-      
+
         to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
         downloaded_file_name = os.path.join(to_download_directory, file_name)
         downloaded_file_name = await hehe.client.download_media(
             reply_message,
             downloaded_file_name
         )
-      
+
         try:
             thumb = await reply_message.download_media(thumb=-1)
         except Exception:
             thumb = thumb
         if os.path.exists(downloaded_file_name):
-            
+
             dc = await hehe.client.send_file(
                 hehe.chat_id,
                 downloaded_file_name,
@@ -107,9 +105,9 @@ async def danish(hehe):
                 allow_cache=False,
                 reply_to=reply_message,
                 thumb=thumb
-                
+
             )
-            
+
             os.remove(downloaded_file_name)
             await cobra.delete()
         else:
@@ -131,29 +129,29 @@ async def teamcobra(hehe):
     if hehe.reply_to_msg_id:
         reply_to_id = hehe.reply_to_msg_id
     cobra = await edit_or_reply(hehe, "Converting.....")
-    
-  
-    input_str = "dc.webp"
+
+
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     if cobra.reply_to_msg_id:
         start = datetime.now()
+        input_str = "dc.webp"
         file_name = input_str
         reply_message = await cobra.get_reply_message()
-      
+
         to_download_directory = Config.TMP_DOWNLOAD_DIRECTORY
         downloaded_file_name = os.path.join(to_download_directory, file_name)
         downloaded_file_name = await hehe.client.download_media(
             reply_message,
             downloaded_file_name
         )
-      
+
         try:
             thumb = await reply_message.download_media(thumb=-1)
         except Exception:
             thumb = thumb
         if os.path.exists(downloaded_file_name):
-            
+
             dc = await hehe.client.send_file(
                 hehe.chat_id,
                 downloaded_file_name,
@@ -162,9 +160,9 @@ async def teamcobra(hehe):
                 allow_cache=False,
                 reply_to=reply_message,
                 thumb=thumb
-                
+
             )
-            
+
             os.remove(downloaded_file_name)
             await cobra.delete()
         else:

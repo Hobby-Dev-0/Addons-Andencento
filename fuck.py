@@ -17,7 +17,6 @@ from userbot.utils import admin_cmd
 
 
 @borg.on(admin_cmd("fuck"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -26,10 +25,9 @@ async def _(event):
 
     animation_interval = 1
 
-    animation_ttl = range(0, 101)
+    animation_ttl = range(101)
 
     #input_str = event.pattern_match.group(1)
-
    # if input_str == "fuk":
 
     await event.edit("fuk")
@@ -54,7 +52,6 @@ async def _(event):
 
 
 @borg.on(admin_cmd("sux"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -63,7 +60,7 @@ async def _(event):
 
     animation_interval = 1
 
-    animation_ttl = range(0, 101)
+    animation_ttl = range(101)
 
     #input_str = event.pattern_match.group(1)
 
@@ -102,7 +99,6 @@ import asyncio
 
 
 @borg.on(admin_cmd("kiss"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -111,7 +107,7 @@ async def _(event):
 
     animation_interval = 1
 
-    animation_ttl = range(0, 101)
+    animation_ttl = range(101)
 
     #input_str = event.pattern_match.group(1)
 

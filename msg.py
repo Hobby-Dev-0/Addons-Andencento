@@ -90,7 +90,7 @@ async def inline_id_handler(event: events.InlineQuery.Event):
                     )
                 )
         await event.answer(results)
-    if not event.query.user_id == bot.uid:
+    if event.query.user_id != bot.uid:
         resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/TeamExtremePro/Andencento UB ",buttons=[[Button.switch_inline("Search Again", query="tor ", same_peer=True)],], )
         await event.answer([resultm])
         return
@@ -106,7 +106,7 @@ async def inline_id_handler(event: events.InlineQuery.Event):
         search = SearchVideos(f"{testinput}", offset=1, mode="dict", max_results=int(shivam))
         mi = search.result()
         moi = mi["search_result"]
-        if search == None:
+        if search is None:
             resultm = builder.article(
                 title="No Results.",
                 description="Try Again With correct Spelling",
@@ -139,7 +139,7 @@ async def inline_id_handler(event: events.InlineQuery.Event):
             )
         await event.answer(results)
 
-    if not event.query.user_id == bot.uid:
+    if event.query.user_id != bot.uid:
         resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/TeamExtremePro/Andencento UB  ",buttons=[[Button.switch_inline("Search Again", query="yt ", same_peer=True)],], )
         await event.answer([resultm])
         return

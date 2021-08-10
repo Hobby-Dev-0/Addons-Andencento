@@ -23,13 +23,13 @@ def dogbin(magnets):
 		r = requests.post(url, data=message.encode("UTF-8")).json()
 		url = f"https://del.dog/{r['key']}"
 		urls.append(url)
-		counter = counter + 1
+		counter += 1
 	return urls	
 	
 @borg.on(admin_cmd(pattern="tsearch ?(.*)"))
 async def tor_search(event):
 	if event.fwd_from:
-		return 
+		return
 	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'}
 
 	search_str = event.pattern_match.group(1)
@@ -56,15 +56,11 @@ async def tor_search(event):
 			title = title[20:]
 			titles.append(title)
 			urls.append("https://www.torrentdownloads.me"+div.p.a['href'])
-		except KeyError:
+		except (KeyError, TypeError, AttributeError):
 			pass
-		except TypeError:
-			pass
-		except AttributeError:
-			pass	
 		if counter == 15:
-			break		
-		counter = counter + 1
+			break
+		counter += 1
 	if not urls:
 		await event.edit("Either the Keyword was restricted or not found..")		
 		return
@@ -79,7 +75,7 @@ async def tor_search(event):
 				mg = div.p.a['href']
 				magnets.append(mg)
 			except Exception as e:
-				pass	
+				pass
 	print("Found Magnets...")
 	shorted_links = dogbin(magnets)
 	print("Dogged Magnets to del.dog...")
@@ -87,10 +83,10 @@ async def tor_search(event):
 	try:
 		search_str = search_str.replace("+"," ")
 	except:
-		pass	
+		pass
 	msg = "**Torrent Search Query**\n`{}`".format(search_str)+"\n**Results**\n"
 	counter = 0
 	while counter != len(titles):
 		msg = msg + "⁍ [{}]".format(titles[counter])+"({})".format(shorted_links[counter])+"\n\n"
-		counter = counter + 1
+		counter += 1
 	await event.edit(msg,link_preview=False)

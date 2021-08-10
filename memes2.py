@@ -233,8 +233,7 @@ async def emoji_penis(e):
     await e.edit(titid)
 
 
-@borg.on(admin_cmd(pattern=f"muth", outgoing=True))
-
+@borg.on(admin_cmd(pattern='muth', outgoing=True))
 async def _(event):
 
     if event.fwd_from:
@@ -243,8 +242,8 @@ async def _(event):
 
     animation_interval = 0.3
 
-    animation_ttl = range(0, 100)
-         
+    animation_ttl = range(100)
+
     animation_chars = [
 
             "8✊️===D",
@@ -270,9 +269,9 @@ async def _(event):
         ]
 
     for i in animation_ttl:
-        
+
             await asyncio.sleep(animation_interval)
-        
+
             await event.edit(animation_chars[i % 8])
 
 emojis = {
@@ -290,10 +289,7 @@ emojis = {
     "f": "😂😂😂😂😂😂😂😂\n😂😂😂😂😂😂😂😂😂\n😂😂\n😂😂\n😂😂😂😂😂😂\n😂😂😂😂😂😂\n😂😂\n😂😂\n😂😂\n😂😂\n😂😂"
 }
 
-unpacked_emojis = ""
-
-for emoji in emojis:
-    unpacked_emojis += f"`{emoji}`\n"
+unpacked_emojis = "".join(f"`{emoji}`\n" for emoji in emojis)
     
 @borg.on(admin_cmd(pattern="emoji ?(.*)"))
 async def _(event):

@@ -31,8 +31,9 @@ async def inline_id_handler(event: events.InlineQuery.Event):
     if event.query.user_id != bot.uid:
         resultm = builder.article(
             title="- NIKAL LAWDE -",
-            text=f"You Can't Use This Bot. \nDeploy LEGEND BOTTo Get Your Own BOT Repo Link HERE",
+            text="You Can't Use This Bot. \nDeploy LEGEND BOTTo Get Your Own BOT Repo Link HERE",
         )
+
         await event.answer([resultm])
         return
     results = []
@@ -45,19 +46,17 @@ async def inline_id_handler(event: events.InlineQuery.Event):
     ok = 1
     oik = ""
     for vid in data.videos:
-      if ok <= 5:
-        lul_m = (f"PORN-HUB SEARCH \nVideo title : {vid.title} \nVideo link : https://www.pornhub.com/view_video.php?viewkey={vid.video_id}")
-        results.append(
-                await event.builder.article(
-                    title=vid.title,
-                    text=lul_m,
-                    buttons=[
-                        Button.switch_inline(
-                            "Search Again", query="ph ", same_peer=True
-                        )
-                    ],
+        if ok <= 5:
+            lul_m = (f"PORN-HUB SEARCH \nVideo title : {vid.title} \nVideo link : https://www.pornhub.com/view_video.php?viewkey={vid.video_id}")
+            results.append(
+                    await event.builder.article(
+                        title=vid.title,
+                        text=lul_m,
+                        buttons=[
+                            Button.switch_inline(
+                                "Search Again", query="ph ", same_peer=True
+                            )
+                        ],
+                    )
                 )
-            )
-      else:
-        pass
     await event.answer(results)

@@ -194,7 +194,7 @@ async def _(event):
         await event.edit(animation_chars[i % 32])
 
 @bot.on(admin_cmd(pattern=f"hart$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"hart$", allow_sudo=True))
+@bot.on(sudo_cmd(pattern='hart$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -208,7 +208,7 @@ async def _(event):
 
 
 @bot.on(admin_cmd(pattern=f"anim$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"anim$", allow_sudo=True))
+@bot.on(sudo_cmd(pattern='anim$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -231,7 +231,7 @@ async def _(event):
 
 
 @bot.on(admin_cmd(pattern=f"fnl$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"fnl$", allow_sudo=True))
+@bot.on(sudo_cmd(pattern='fnl$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -245,7 +245,7 @@ async def _(event):
 
 
 @bot.on(admin_cmd(pattern=f"monkey$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"monkey$", allow_sudo=True))
+@bot.on(sudo_cmd(pattern='monkey$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -258,7 +258,7 @@ async def _(event):
         await event.edit(animation_chars[i % 6])
 
 @bot.on(admin_cmd(pattern=f"hand$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"hand$", allow_sudo=True))
+@bot.on(sudo_cmd(pattern='hand$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -286,7 +286,7 @@ async def _(event):
 
 
 @bot.on(admin_cmd(pattern=f"gsg$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"gsg$", allow_sudo=True))
+@bot.on(sudo_cmd(pattern='gsg$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

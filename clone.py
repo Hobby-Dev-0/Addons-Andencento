@@ -91,12 +91,14 @@ async def _(event):
     name = f"{DEFAULTUSER}"
     bio = f"{DEFAULTUSERBIO}"
     n = 1
-    await borg(functions.photos.DeletePhotosRequest(await event.client.get_profile_photos("me", limit= n)))    
+    await borg(functions.photos.DeletePhotosRequest(await event.client.get_profile_photos("me", limit= n)))
     await borg(functions.account.UpdateProfileRequest(about=f"{bio}"))
     await borg(functions.account.UpdateProfileRequest(first_name=f"{name}"))
     await event.edit("succesfully reverted to your account back")
     if BOTLOG:
-        await event.client.send_message(BOTLOG_CHATID, f"#REVERT\nSuccesfully reverted back to your profile")
+        await event.client.send_message(
+            BOTLOG_CHATID, '#REVERT\nSuccesfully reverted back to your profile'
+        )
     
     
     
@@ -109,14 +111,13 @@ async def get_full_user(event):
                     previous_message.forward.sender_id or previous_message.forward.channel_id
                 )
             )
-            return replied_user, None
         else:
             replied_user = await event.client(
                 GetFullUserRequest(
                     previous_message.sender_id
                 )
             )
-            return replied_user, None
+        return replied_user, None
     else:
         input_str = None
         try:

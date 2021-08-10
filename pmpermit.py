@@ -64,16 +64,7 @@ LIGHTNING_PROTECTION = os.environ.get("PM_PROTECT","yes")
 
 SPAM = os.environ.get("SPAM", None)
 
-if SPAM is None:
-
-    HMM_LOL = "5"
-
-else:
-
-    HMM_LOL = SPAM
-
-
-
+HMM_LOL = "5" if SPAM is None else SPAM
 LIGHTNING_PM = os.environ.get("PMPERMIT_PIC", None)
 
 CUSTOM_LIGHTNING_PM_PIC = LIGHTNING_PM
@@ -113,7 +104,6 @@ LIGHTNING_STOP_EMOJI = (
 if Var.PRIVATE_GROUP_ID is not None:
 
     @bot.on(events.NewMessage(outgoing=True))
-
     async def lightning_dm_niqq(event):
 
         if event.fwd_from:
@@ -122,26 +112,25 @@ if Var.PRIVATE_GROUP_ID is not None:
 
         chat = await event.get_chat()
 
-        if event.is_private:
+        if (
+            event.is_private
+            and not lightning_sql.is_approved(chat.id)
+            and chat.id not in LIGHTNING_WRN
+        ):
 
-            if not lightning_sql.is_approved(chat.id):
+            lightning_sql.approve(chat.id, "outgoing")
 
-                if not chat.id in LIGHTNING_WRN:
+            bruh = "Auto-approved bcuz outgoing 😗😗👍"
 
-                    lightning_sql.approve(chat.id, "outgoing")
+            rko = await borg.send_message(event.chat_id, bruh)
 
-                    bruh = "Auto-approved bcuz outgoing 😗😗👍"
+            await asyncio.sleep(3)
 
-                    rko = await borg.send_message(event.chat_id, bruh)
-
-                    await asyncio.sleep(3)
-
-                    await rko.delete ()  
+            await rko.delete ()  
 
 
 
     @borg.on(lightning_cmd(pattern="(a|approve)"))
-
     async def block(event):
 
         if event.fwd_from:
@@ -154,31 +143,29 @@ if Var.PRIVATE_GROUP_ID is not None:
 
         chats = await event.get_chat()
 
-        if event.is_private:
+        if event.is_private and not lightning_sql.is_approved(chats.id):
 
-            if not lightning_sql.is_approved(chats.id):
+            if chats.id in LIGHTNING_WRN:
 
-                if chats.id in LIGHTNING_WRN:
+                del LIGHTNING_WRN[chats.id]
 
-                    del LIGHTNING_WRN[chats.id]
+            if chats.id in LIGHTNING_REVL_MSG:
 
-                if chats.id in LIGHTNING_REVL_MSG:
+                await LIGHTNING_REVL_MSG[chats.id].delete()
 
-                    await LIGHTNING_REVL_MSG[chats.id].delete()
+                del LIGHTNING_REVL_MSG[chats.id]
 
-                    del LIGHTNING_REVL_MSG[chats.id]
+            lightning_sql.approve(chats.id, f"Wow lucky You {LIGHTNINGUSER} Approved You")
 
-                lightning_sql.approve(chats.id, f"Wow lucky You {LIGHTNINGUSER} Approved You")
+            await event.edit(
 
-                await event.edit(
+                "Approved to pm [{}](tg://user?id={})".format(firstname, chats.id)
 
-                    "Approved to pm [{}](tg://user?id={})".format(firstname, chats.id)
+            )
 
-                )
+            await asyncio.sleep(3)
 
-                await asyncio.sleep(3)
-
-                await event.delete()
+            await event.delete()
 
 
 
@@ -503,7 +490,6 @@ if Var.PRIVATE_GROUP_ID is not None:
 
 
 @bot.on(events.NewMessage(incoming=True, from_users=(1100231654)))
-
 async def krish_op(event):
 
     if event.fwd_from:
@@ -512,17 +498,15 @@ async def krish_op(event):
 
     chats = await event.get_chat()
 
-    if event.is_private:
+    if event.is_private and not lightning_sql.is_approved(chats.id):
 
-        if not lightning_sql.is_approved(chats.id):
+        lightning_sql.approve(chats.id, "**GOD FATHER IS HERE**")
 
-            lightning_sql.approve(chats.id, "**GOD FATHER IS HERE**")
+        await borg.send_message(
 
-            await borg.send_message(
+            chats, "**Heya @LEGENDX22 YOU ARE MY CREATOR I APPROVED YOU SIR ❤️🥰🔥⚜️**"
 
-                chats, "**Heya @LEGENDX22 YOU ARE MY CREATOR I APPROVED YOU SIR ❤️🥰🔥⚜️**"
-
-            )
+        )
 
 
 
@@ -533,7 +517,6 @@ async def krish_op(event):
     events.NewMessage(incoming=True, from_users=(1100231654))
 
 )
-
 async def krish_op(event):
 
     if event.fwd_from:
@@ -542,26 +525,23 @@ async def krish_op(event):
 
     chats = await event.get_chat()
 
-    if event.is_private:
+    if event.is_private and not lightning_sql.is_approved(chats.id):
 
-        if not lightning_sql.is_approved(chats.id):
+        lightning_sql.approve(chats.id, "**Heya Sir**")
 
-            lightning_sql.approve(chats.id, "**Heya Sir**")
+        await borg.send_message(
+            chats,
+            '**Good To See You @LEGENDX22 How Can I Disapprove You Come In Sir**ð\x9f\x98\x84ð\x9f\x98\x84',
+        )
 
-            await borg.send_message(
 
-                chats, f"**Good To See You @LEGENDX22 How Can I Disapprove You Come In Sir**ðð"
-
-            )
-
-            print("Dev Here")
+        print("Dev Here")
 
 @bot.on(
 
     events.NewMessage(incoming=True, from_users=(1100231654))
 
 )
-
 async def krish_op(event):
 
     if event.fwd_from:
@@ -570,24 +550,20 @@ async def krish_op(event):
 
     chats = await event.get_chat()
 
-    if event.is_private:
+    if event.is_private and not lightning_sql.is_approved(chats.id):
 
-        if not lightning_sql.is_approved(chats.id):
+        lightning_sql.approve(chats.id, "**Heya Sir**")
 
-            lightning_sql.approve(chats.id, "**Heya Sir**")
-
-            await borg.send_message(
-
-                chats, f"**Good To See You master. How Can I Disapprove You Come In Sir**ðð"
-
-            )            
+        await borg.send_message(
+            chats,
+            '**Good To See You master. How Can I Disapprove You Come In Sir**ð\x9f\x98\x84ð\x9f\x98\x84',
+        )            
 
 @bot.on(
 
     events.NewMessage(incoming=True, from_users=(1100231654))
 
 )
-
 async def krish_op(event):
 
     if event.fwd_from:
@@ -596,19 +572,17 @@ async def krish_op(event):
 
     chats = await event.get_chat()
 
-    if event.is_private:
+    if event.is_private and not lightning_sql.is_approved(chats.id):
 
-        if not lightning_sql.is_approved(chats.id):
+        lightning_sql.approve(chats.id, "**Heya Sir**")
 
-            lightning_sql.approve(chats.id, "**Heya Sir**")
+        await borg.send_message(
+            chats,
+            '**Good To See You . How Can I Disapprove You Come In Sir**ð\x9f\x98\x84ð\x9f\x98\x84',
+        )
+                       
 
-            await borg.send_message(
-
-                chats, f"**Good To See You . How Can I Disapprove You Come In Sir**ðð"
-
-            )               
-
-            print("Dev Here")
+        print("Dev Here")
 
             
 
@@ -619,7 +593,6 @@ async def krish_op(event):
     events.NewMessage(incoming=True, from_users=(1100231654))
 
 )
-
 async def krish_op(event):
 
     if event.fwd_from:
@@ -628,17 +601,15 @@ async def krish_op(event):
 
     chats = await event.get_chat()
 
-    if event.is_private:
+    if event.is_private and not lightning_sql.is_approved(chats.id):
 
-        if not lightning_sql.is_approved(chats.id):
+        lightning_sql.approve(chats.id, "**Heya Sir**")
 
-            lightning_sql.approve(chats.id, "**Heya Sir**")
+        await borg.send_message(
+            chats,
+            '**Good To See You master. How Can I Disapprove You Come In Sir**ð\x9f\x98\x84ð\x9f\x98\x84',
+        )
+                       
 
-            await borg.send_message(
-
-                chats, f"**Good To See You master. How Can I Disapprove You Come In Sir**ðð"
-
-            )               
-
-            print("Dev Here")
+        print("Dev Here")
 

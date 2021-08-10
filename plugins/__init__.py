@@ -35,25 +35,13 @@ tel_ver = version.__version__
 user_mention = Andencento_mention
 
 async def get_user_id(ids):
-    if str(ids).isdigit():
-        userid = int(ids)
-    else:
-        userid = (await bot.get_entity(ids)).id
-    return userid
+    return int(ids) if str(ids).isdigit() else (await bot.get_entity(ids)).id
 
 
 sudos = Config.SUDO_USERS
-if sudos:
-    is_sudo = "True"
-else:
-    is_sudo = "False"
-
+is_sudo = "True" if sudos else "False"
 abus = Config.ABUSE
-if abus == "ON":
-    abuse_m = "Enabled"
-else:
-    abuse_m = "Disabled"
-
+abuse_m = "Enabled" if abus == "ON" else "Disabled"
 START_TIME = datetime.datetime.now()
 
 
@@ -88,7 +76,7 @@ class CMD_HELP:
         self.FILE = file
         self.ORIGINAL_FILE = file
         self.IS_OFFICIAL = official
-        self.FILE_NAME = file_name if not file_name == None else file + ".py"
+        self.FILE_NAME = file_name if file_name is not None else file + ".py"
         self.COMMANDS = {}
         self.FILE_AUTHOR = ""
         self.WARNING = ""
@@ -134,21 +122,20 @@ class CMD_HELP:
             result += f"**⬇️ Official:** {'✅' if self.IS_OFFICIAL else '❌'}\n"
 
             if self.INFO == "":
-                if not self.WARNING == "":
-                    result += f"**⚠️ Warning :** {self.WARNING}\n\n"
+                result += f"**⚠️ Warning :** {self.WARNING}\n\n"
             else:
-                if not self.WARNING == "":
+                if self.WARNING != "":
                     result += f"**⚠️ Warning :** {self.WARNING}\n"
                 result += f"**ℹ️ Info:** {self.INFO}\n\n"
 
         for command in self.COMMANDS:
             command = self.COMMANDS[command]
-            if command["params"] == None:
+            if command["params"] is None:
                 result += f"**🛠 Command :** `{COMMAND_HAND_LER[:1]}{command['command']}`\n"
             else:
                 result += f"**🛠 Command :** `{COMMAND_HAND_LER[:1]}{command['command']} {command['params']}`\n"
 
-            if command["example"] == None:
+            if command["example"] is None:
                 result += f"**💬 Details :** `{command['usage']}`\n\n"
             else:
                 result += f"**💬 Details :** `{command['usage']}`\n"

@@ -198,7 +198,6 @@ else:
 from . import CMD_HELP
 
 @tgbot.on(events.InlineQuery)
-
 async def inline_handler(lightning):
 
     builder = lightning.builder
@@ -214,16 +213,12 @@ async def inline_handler(lightning):
         buttons = lightnings_menu_for_help(0, CMD_LIST, "helpmepro")
 
         result = builder.article(
-
-            f"Help Menu",
-
+            'Help Menu',
             text="\n{}\n`Plugins`: {}".format(query, len(CMD_LIST)),
-
             buttons=buttons,
-
             link_preview=False,
-
         )
+
 
         await lightning.answer([result])
 
@@ -247,7 +242,7 @@ async def inline_handler(lightning):
 
                     Button.url(
 
-                
+
 
                     "Want To Learn CMDS☺️☺️",
 
@@ -297,11 +292,11 @@ async def inline_handler(lightning):
 
                         data="lol_u_think_so",
 
-                        
+
 
                     )
 
-                        
+
 
                 ],
 
@@ -332,10 +327,9 @@ async def inline_handler(lightning):
     )
 
 )
-
 async def lightning_pugins_query_hndlr(lightning):
 
-    if lightning.query.user_id == bot.uid or lightning.query.user_id == ID:  # pylint:disable=E0602
+    if lightning.query.user_id in [bot.uid, ID]:  # pylint:disable=E0602
 
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
 
@@ -368,10 +362,9 @@ async def lightning_pugins_query_hndlr(lightning):
    )
 
 ) # Thanks To Friday Userbot
-
 async def lightning_pugins_query_hndlr(lightning):
 
-    if not lightning.query.user_id == bot.uid:
+    if lightning.query.user_id != bot.uid:
 
         how = "Not For  Bitch.😂😂( 😈😈😈😈😈😈)"
 
@@ -381,13 +374,13 @@ async def lightning_pugins_query_hndlr(lightning):
 
     light_pulu_name = lightning.data_match.group(1).decode("UTF-8")
 
-   
+
 
     try:
 
         if light_pulu_name in CMD_HELP:
 
-           
+
 
            lightning_help_strin  = f"**🔱🔱 NAME 🔱🔱 :** `{light_pulu_name}` \n\n{CMD_HELP[light_pulu_name]}"
 
@@ -395,7 +388,7 @@ async def lightning_pugins_query_hndlr(lightning):
 
            lightning_is_best += "\n\n**In Case Any Problem @teamishere** ".format(light_pulu_name)
 
-        
+
 
         else:
 
@@ -417,7 +410,7 @@ async def lightning_pugins_query_hndlr(lightning):
 
          pass
 
-   
+
 
     if light_pulu_name in CMD_LIST:
 
@@ -431,7 +424,7 @@ async def lightning_pugins_query_hndlr(lightning):
 
                     lightning_help_strin += "\n"
 
-                
+
 
     else:
 
@@ -491,6 +484,10 @@ async def lightning_pugins_query_hndlr(lightning):
 
         )
 
+            ],
+
+        )
+
 
 
 
@@ -504,10 +501,9 @@ async def lightning_pugins_query_hndlr(lightning):
     )
 
 )
-
 async def lightning_pugins_query_hndlr(lightning):
 
-    if lightning.query.user_id == bot.uid or lightning.query.user_id == ID:  # pylint:disable=E0602
+    if lightning.query.user_id in [bot.uid, ID]:  # pylint:disable=E0602
 
         lightning_page = int(lightning.data_match.group(1).decode("UTF-8"))
 
@@ -527,19 +523,22 @@ async def lightning_pugins_query_hndlr(lightning):
 
         await lightning.answer(lightning_is_best, cache_time=0, alert=True)
 
+        lightning_is_best = "Oh C'mon You Think You Can Touch This? 😂😂😂 !"
 
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"what?")))
-
+        @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"what?")))
 async def what(lightning):
 
-    if lightning.query.user_id == bot.uid or lightning.query.user_id == ID:
+    if lightning.query.user_id in [bot.uid, ID]:
 
         fck_bit = f"{LIGHTNINGUSER}  Use The Buttons Bellow "
 
         await lightning.answer(fck_bit, alert=True)
 
     else:
+
+        txt = f"Ohh  You Think That This Is For You?\n Ok I Will Complain To {LIGHTNINGUSER}⚜️⚜️"
+
+        await lightning.answer(txt, alert=True)
 
         txt = f"Ohh  You Think That This Is For You?\n Ok I Will Complain To {LIGHTNINGUSER}⚜️⚜️"
 
@@ -581,12 +580,7 @@ async def lightning_is_better(lightning):
 
         f"Hey Master Sorry Disturb You, [Noob](tg://user?id={lightning_id}) Tryin To Spam 🥺\n\n**So Blocked**.",
 
-    )
-
-
-
-@tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lol_u_think_so")))
-
+    @tgbot.on(events.callbackquery.CallbackQuery(data=re.compile(b"lol_u_think_so")))
 async def lightning_is_better(lightning):
 
     if lightning.query.user_id == bot.uid:
@@ -601,7 +595,7 @@ async def lightning_is_better(lightning):
 
     lightning_id = lightning.query.user_id
 
-    text1 = f"LOL You Think So You Can😂😂\nGo and wait🥴🥴"
+    text1 = 'LOL You Think So You Can😂😂\nGo and wait🥴🥴'
 
     await lightning.edit("Off Course Go To Hell Dudeð😑")
 
@@ -612,6 +606,10 @@ async def lightning_is_better(lightning):
     await bot.send_message(
 
         LIGHT_LOGS,
+
+        f"Hey Master Sorry Disturb You, [Noob](tg://user?id={lightning_id}) Tryin To Enter With Out approvalð \n.",
+
+    )
 
         f"Hey Master Sorry Disturb You, [Noob](tg://user?id={lightning_id}) Tryin To Enter With Out approvalð \n.",
 
@@ -969,13 +967,7 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
 
     lightning_no_coulmns = 3
 
-    lightning_plugins = []
-
-    for p in lightning_plugs:
-
-        if not p.startswith("_"):
-
-            lightning_plugins.append(p)
+    lightning_plugins = [p for p in lightning_plugs if not p.startswith("_")]
 
     lightning_plugins = sorted(lightning_plugins)
 
@@ -1029,9 +1021,13 @@ def lightnings_menu_for_help(b_lac_krish, lightning_plugs, lightning_lol):
 
                 ),
 
-                
+
 
             )
+
+        ]
+
+    return pairs
 
         ]
 

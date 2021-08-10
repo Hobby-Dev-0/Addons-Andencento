@@ -72,7 +72,7 @@ async def inline_id_handler(q_event: events.InlineQuery.Event):
                     text=msg,
                     buttons=Button.switch_inline("Search Again", query="google ", same_peer=True)))
         await q_event.answer(miraculous)
-    if not q_event.query.user_id == bot.uid:
+    if q_event.query.user_id != bot.uid:
         resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/TeamExtremePro/Andencento UB ",buttons=[[Button.switch_inline("Search Again", query="google ", same_peer=True)],], )
         await q_event.answer([resultm])
         return

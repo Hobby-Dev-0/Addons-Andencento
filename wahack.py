@@ -13,12 +13,12 @@ import asyncio
 
 from userbot.utils import admin_cmd
 
-@borg.on(admin_cmd(pattern=f"wahack", outgoing=True))
+@borg.on(admin_cmd(pattern='wahack', outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
     animation_interval = 2
-    animation_ttl = range(0, 15)
+    animation_ttl = range(15)
     #input_str = event.pattern_match.group(1)
     #if input_str == "wahack":
     await event.edit("wahack..")

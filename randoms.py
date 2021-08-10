@@ -157,8 +157,8 @@ async def _(event):
         await event.edit("Not in a mood to sing. Sorry!")
 
 
-@bot.on(admin_cmd(pattern=f"hps$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"hps$", allow_sudo=True))
+@bot.on(admin_cmd(pattern='hps$', outgoing=True))
+@bot.on(sudo_cmd(pattern='hps$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -247,8 +247,8 @@ async def _(event):
         await event.edit("**Wingardium Leviosa**")
 
 
-@bot.on(admin_cmd(pattern=f"gott$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"gott$", allow_sudo=True))
+@bot.on(admin_cmd(pattern='gott$', outgoing=True))
+@bot.on(sudo_cmd(pattern='gott$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -397,8 +397,8 @@ async def _(event):
         )
 
 
-@bot.on(admin_cmd(pattern=f"gotm$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"gotm$", allow_sudo=True))
+@bot.on(admin_cmd(pattern='gotm$', outgoing=True))
+@bot.on(sudo_cmd(pattern='gotm$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -1493,8 +1493,8 @@ async def _(event):
         )
 
 
-@bot.on(admin_cmd(pattern=f"logic$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"logic$", allow_sudo=True))
+@bot.on(admin_cmd(pattern='logic$', outgoing=True))
+@bot.on(sudo_cmd(pattern='logic$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

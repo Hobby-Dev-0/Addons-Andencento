@@ -49,9 +49,7 @@ async def _(event):
                 downloaded_file_name
             )
         metadata = extractMetadata(createParser(downloaded_file_name))
-        height = 0
-        if metadata.has("height"):
-            height = metadata.get("height")
+        height = metadata.get("height") if metadata.has("height") else 0
         # resize image
         # ref: https://t.me/PyrogramChat/44663
         # https://stackoverflow.com/a/21669827/4723940

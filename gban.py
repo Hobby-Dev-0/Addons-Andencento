@@ -15,7 +15,7 @@ from telethon.events import ChatAction
 async def get_full_user(event):  
     args = event.pattern_match.group(1).split(':', 1)
     extra = None
-    if event.reply_to_msg_id and not len(args) == 2:
+    if event.reply_to_msg_id and len(args) != 2:
         previous_message = await event.get_reply_message()
         user_obj = await event.client.get_entity(previous_message.sender_id)
         extra = event.pattern_match.group(1)
@@ -38,7 +38,7 @@ async def get_full_user(event):
         try:
             user_obj = await event.client.get_entity(user)
         except Exception as err:
-            return await event.edit("Something Went Wrong", str(err))           
+            return await event.edit("Something Went Wrong", str(err))
     return user_obj, extra
 
 
@@ -57,12 +57,12 @@ async def gspider(userbot):
     lol = userbot
     sender = await lol.get_sender()
     me = await lol.client.get_me()
-    if not sender.id == me.id:
+    if sender.id != me.id:
         friday = await lol.reply("Gbanning This Retard DumbAss😁😁")
     else:
         friday = await lol.edit("Wait Processing.....")
     me = await userbot.client.get_me()
-    await friday.edit(f"Global Ban Is Coming ! Wait And Watch You bitch😎🔥")
+    await friday.edit('Global Ban Is Coming ! Wait And Watch You bitch😎🔥')
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     f"@{me.username}" if me.username else my_mention
     await userbot.get_chat()
@@ -80,12 +80,13 @@ async def gspider(userbot):
         if not reason:
             reason = "Private"
     except:
-        return await friday.edit(f"**Something W3NT Wrong 🤔**")
+        return await friday.edit('**Something W3NT Wrong 🤔**')
     if user:
         if user.id == 1100231654:
             return await friday.edit(
-                f"**Didn't , Your Father Teach You ? That You Cant Gban your creator😑😑🖕**"
+                "**Didn't , Your Father Teach You ? That You Cant Gban your creator😑😑🖕**"
             )
+
         try:
             from userbot.modules.sql_helper.gmute_sql import gmute
         except:
@@ -107,10 +108,10 @@ async def gspider(userbot):
             except:
                 b += 1
     else:
-        await friday.edit(f"**Reply to a user !!**")
+        await friday.edit('**Reply to a user !!**')
     try:
         if gmute(user.id) is False:
-            return await friday.edit(f"**Error! User probably already gbanned.**")
+            return await friday.edit('**Error! User probably already gbanned.**')
     except:
         pass
     return await friday.edit(
@@ -123,12 +124,12 @@ async def gspider(userbot):
     lol = userbot
     sender = await lol.get_sender()
     me = await lol.client.get_me()
-    if not sender.id == me.id:
+    if sender.id != me.id:
         friday = await lol.reply("`Wait Let Me Process`")
     else:
         friday = await lol.edit("Just a Second ")
     me = await userbot.client.get_me()
-    await friday.edit(f"Trying To Ungban User !")
+    await friday.edit('Trying To Ungban User !')
     my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id)
     f"@{me.username}" if me.username else my_mention
     await userbot.get_chat()
@@ -186,28 +187,29 @@ async def gspider(userbot):
 
 @borg.on(ChatAction)
 async def handler(rkG): 
-   if rkG.user_joined or rkG.user_added:      
-       try:       	
-         from userbot.modules.sql_helper.gmute_sql import is_gmuted
-         guser = await rkG.get_user()      
-         gmuted = is_gmuted(guser.id)             
-       except:      
-          return
-       if gmuted:
-        for i in gmuted:
-            if i.sender == str(guser.id):                                                                         
-                chat = await rkG.get_chat()
-                admin = chat.admin_rights
-                creator = chat.creator   
-                if admin or creator:
-                 try:
-                    await client.edit_permissions(rkG.chat_id, guser.id, view_messages=False)                              
-                    await rkG.reply(
-                     f"**Gbanned User Joined!!** \n"                      
-                     f"**Victim Id**: [{guser.id}](tg://user?id={guser.id})\n"                   
-                     f"**Action **  : `Banned`")                                                
-                 except:       
-                    rkG.reply("`No Permission To Ban`")                   
-                    return 
+    if not rkG.user_joined and not rkG.user_added:  
+        return
+    try:       	
+      from userbot.modules.sql_helper.gmute_sql import is_gmuted
+      guser = await rkG.get_user()      
+      gmuted = is_gmuted(guser.id)             
+    except:      
+       return
+    if gmuted:
+     for i in gmuted:
+         if i.sender == str(guser.id):                                                                         
+             chat = await rkG.get_chat()
+             admin = chat.admin_rights
+             creator = chat.creator   
+             if admin or creator:
+              try:
+                 await client.edit_permissions(rkG.chat_id, guser.id, view_messages=False)                              
+                 await rkG.reply(
+                  f"**Gbanned User Joined!!** \n"                      
+                  f"**Victim Id**: [{guser.id}](tg://user?id={guser.id})\n"                   
+                  f"**Action **  : `Banned`")                                                
+              except:       
+                 rkG.reply("`No Permission To Ban`")                   
+                 return 
 CMD_HELP.update({
     "gban":"gban any user using username or tag dont use id "})

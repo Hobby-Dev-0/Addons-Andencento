@@ -9,7 +9,6 @@ from userbot.utils import admin_cmd
 
 
 @borg.on(admin_cmd(pattern="lovestory"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -18,7 +17,7 @@ async def _(event):
 
     animation_interval = 3
 
-    animation_ttl = range(0, 103)
+    animation_ttl = range(103)
 
     #input_str = event.pattern_match.group(1)
 

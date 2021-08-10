@@ -57,24 +57,24 @@ async def hmm(event):
         return
     reply = await event.get_reply_message()
     await event.edit("```Processing```")
-    os.system(f'wget https://telegra.ph/file/b3a6038bc825cc4edc4f0.png')
+    os.system('wget https://telegra.ph/file/b3a6038bc825cc4edc4f0.png')
     img = await bot.download_media(reply.media, path)
     mon = "b3a6038bc825cc4edc4f0.png"
     foreground = Image.open(mon).convert("RGBA")
-    img = cv2.VideoCapture(img) 
+    img = cv2.VideoCapture(img)
     tales, miraculous = img.read()
     cv2.imwrite("MiraculousLadybug.png",miraculous)
     shvm=PIL.Image.open("MiraculousLadybug.png")
     shi,vam = shvm.size
     img=shvm.resize((512,512))
     img.save("shivamgta.png", format="PNG", optimize=True)
-    img = cv2.VideoCapture("shivamgta.png") 
+    img = cv2.VideoCapture("shivamgta.png")
     tales, miraculousladybug = img.read()
-    dan = cv2.cvtColor(miraculousladybug, cv2.COLOR_BGR2GRAY) 
+    dan = cv2.cvtColor(miraculousladybug, cv2.COLOR_BGR2GRAY)
     bug = cv2.imwrite("shivamgtas.jpg", dan)
     image = cv2.imread("shivamgtas.jpg")
     overlay = image.copy()
-    overlay =cv2.rectangle(overlay, (0, 210), (800, 310), (0,0,0), -1) 
+    overlay =cv2.rectangle(overlay, (0, 210), (800, 310), (0,0,0), -1)
     image_new = cv2.addWeighted(overlay, 0.5 , image, 0.5 , 0)
     cv2.imwrite("shivamgta.jpg", image_new)
     background = Image.open("shivamgta.jpg").convert("RGB")
@@ -140,7 +140,7 @@ async def hehe(event):
     os.remove("danish.jpg")
 
     # api for adding color only....  
-DARKCOBRA = Config.DEEP_AI if Config.DEEP_AI else "quickstart-QUdJIGlzIGNvbWluZy4uLi4K"
+DARKCOBRA = Config.DEEP_AI or "quickstart-QUdJIGlzIGNvbWluZy4uLi4K"
 @borg.on(admin_cmd(pattern="color$", outgoing=True))
 async def _(event):
     if not event.reply_to_msg_id:

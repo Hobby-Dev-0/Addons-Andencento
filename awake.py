@@ -36,36 +36,36 @@ async def amireallyalive(awake):
    """ For .awake command, check if the bot is running.  """
    global PHOTO
    if PHOTO:
-     tag = borg.uid
-     uptm = await legend.get_readable_time((time.time() - StartTime))
-     ALIVE_MESSAGE= f" ⚡️ {BOT} ⚡️  IS ON 🔥 FIRE 🔥"
-     ALIVE_MESSAGE += "\n\n"
-     ALIVE_MESSAGE += "💟 𝚂𝚈𝚂𝚃𝙴𝙼 𝚂𝚃𝙰𝚃𝚄𝚂 💟\n\n"
-     ALIVE_MESSAGE += "☎️ 𝚃𝙴𝙻𝙴𝚃𝙷𝙾𝙽 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ☎️ : 1.21\n\n"
-     ALIVE_MESSAGE += f"🔶 𝙻𝙴𝙶𝙴𝙽𝙳 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 🔶 :   {VERSION}\n\n"
-     ALIVE_MESSAGE += f"🔷 𝚄𝙿𝚃𝙸𝙼𝙴 🔷 : {uptm}\n\n"
-     ALIVE_MESSAGE += f"💠 𝙼𝚈 𝙱𝙾𝚂𝚂 💠: [{DEFAULTUSER}](tg://user?id={tag})\n\n"
-     ALIVE_MESSAGE += "🔰 𝙶𝚁𝙾𝚄𝙿 🔰 : [SUPPORT](https://t.me/LEGEND_USERBOT_SUPPORT)\n\n"
-     ALIVE_MESSAGE += f"💠 [𝙳𝙴𝙿𝙻𝙾𝚈](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FLEGENDXOP%2FLEGEN-BOT&template=https%3A%2F%2Fgithub.com%2FLEGENDXOP%2FLEGEND-ROBOT) 𝚈𝙾𝚄𝚁 𝙾𝚆𝙽 𝙾𝙿 [{BOT}](http://github.com/legendxop/legend-bot)  💠\n"   
-     await awake.delete() 
-     await borg.send_file(awake.chat_id, PHOTO,caption=ALIVE_MESSAGE)
-   elif PHOTO == None:
-     PHOTO = "https://telegra.ph/file/0ed5f920e8a5e9a7b0029.jpg"
-     tag = borg.uid
-     uptm = await legend.get_readable_time((time.time() - StartTime))
-     ALIVE_MESSAGE= f" ⚡️ {BOT} ⚡️  IS ON 🔥 FIRE 🔥"
-     ALIVE_MESSAGE += "\n\n"
-     ALIVE_MESSAGE += "💟 𝚂𝚈𝚂𝚃𝙴𝙼 𝚂𝚃𝙰𝚃𝚄𝚂 💟\n\n"
-     ALIVE_MESSAGE += "☎️ 𝚃𝙴𝙻𝙴𝚃𝙷𝙾𝙽 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ☎️ : 1.20\n\n"
-     ALIVE_MESSAGE += f"🔶 𝙻𝙴𝙶𝙴𝙽𝙳 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 🔶 :   {VERSION}\n\n"
-     ALIVE_MESSAGE += f"🔷 𝚄𝙿𝚃𝙸𝙼𝙴 🔷 : {uptm}\n\n"
-     ALIVE_MESSAGE += f"💠 𝙼𝚈 𝙱𝙾𝚂𝚂 💠: [{DEFAULTUSER}](tg://user?id={tag})\n\n"
-     ALIVE_MESSAGE += "🔰 𝙶𝚁𝙾𝚄𝙿 🔰 : [SUPPORT](https://t.me/LEGEND_USERBOT_SUPPORT)\n\n"
-     ALIVE_MESSAGE += f"💠 [𝙳𝙴𝙿𝙻𝙾𝚈](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FLEGENDXOP%2FLEGEN-BOT&template=https%3A%2F%2Fgithub.com%2FLEGENDXOP%2FLEGEND-ROBOT) 𝚈𝙾𝚄𝚁 𝙾𝚆𝙽 𝙾𝙿 [{BOT}](http://github.com/legendxop/legend-bot)  💠\n"   
-     await awake.delete() 
-     await borg.send_file(awake.chat_id, PHOTO,caption=ALIVE_MESSAGE)
+      tag = borg.uid
+      uptm = await legend.get_readable_time((time.time() - StartTime))
+      ALIVE_MESSAGE= f" ⚡️ {BOT} ⚡️  IS ON 🔥 FIRE 🔥"
+      ALIVE_MESSAGE += "\n\n"
+      ALIVE_MESSAGE += "💟 𝚂𝚈𝚂𝚃𝙴𝙼 𝚂𝚃𝙰𝚃𝚄𝚂 💟\n\n"
+      ALIVE_MESSAGE += "☎️ 𝚃𝙴𝙻𝙴𝚃𝙷𝙾𝙽 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ☎️ : 1.21\n\n"
+      ALIVE_MESSAGE += f"🔶 𝙻𝙴𝙶𝙴𝙽𝙳 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 🔶 :   {VERSION}\n\n"
+      ALIVE_MESSAGE += f"🔷 𝚄𝙿𝚃𝙸𝙼𝙴 🔷 : {uptm}\n\n"
+      ALIVE_MESSAGE += f"💠 𝙼𝚈 𝙱𝙾𝚂𝚂 💠: [{DEFAULTUSER}](tg://user?id={tag})\n\n"
+      ALIVE_MESSAGE += "🔰 𝙶𝚁𝙾𝚄𝙿 🔰 : [SUPPORT](https://t.me/LEGEND_USERBOT_SUPPORT)\n\n"
+      ALIVE_MESSAGE += f"💠 [𝙳𝙴𝙿𝙻𝙾𝚈](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FLEGENDXOP%2FLEGEN-BOT&template=https%3A%2F%2Fgithub.com%2FLEGENDXOP%2FLEGEND-ROBOT) 𝚈𝙾𝚄𝚁 𝙾𝚆𝙽 𝙾𝙿 [{BOT}](http://github.com/legendxop/legend-bot)  💠\n"   
+      await awake.delete() 
+      await borg.send_file(awake.chat_id, PHOTO,caption=ALIVE_MESSAGE)
+   elif PHOTO is None:
+      PHOTO = "https://telegra.ph/file/0ed5f920e8a5e9a7b0029.jpg"
+      tag = borg.uid
+      uptm = await legend.get_readable_time((time.time() - StartTime))
+      ALIVE_MESSAGE= f" ⚡️ {BOT} ⚡️  IS ON 🔥 FIRE 🔥"
+      ALIVE_MESSAGE += "\n\n"
+      ALIVE_MESSAGE += "💟 𝚂𝚈𝚂𝚃𝙴𝙼 𝚂𝚃𝙰𝚃𝚄𝚂 💟\n\n"
+      ALIVE_MESSAGE += "☎️ 𝚃𝙴𝙻𝙴𝚃𝙷𝙾𝙽 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 ☎️ : 1.20\n\n"
+      ALIVE_MESSAGE += f"🔶 𝙻𝙴𝙶𝙴𝙽𝙳 𝚅𝙴𝚁𝚂𝙸𝙾𝙽 🔶 :   {VERSION}\n\n"
+      ALIVE_MESSAGE += f"🔷 𝚄𝙿𝚃𝙸𝙼𝙴 🔷 : {uptm}\n\n"
+      ALIVE_MESSAGE += f"💠 𝙼𝚈 𝙱𝙾𝚂𝚂 💠: [{DEFAULTUSER}](tg://user?id={tag})\n\n"
+      ALIVE_MESSAGE += "🔰 𝙶𝚁𝙾𝚄𝙿 🔰 : [SUPPORT](https://t.me/LEGEND_USERBOT_SUPPORT)\n\n"
+      ALIVE_MESSAGE += f"💠 [𝙳𝙴𝙿𝙻𝙾𝚈](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2FLEGENDXOP%2FLEGEN-BOT&template=https%3A%2F%2Fgithub.com%2FLEGENDXOP%2FLEGEND-ROBOT) 𝚈𝙾𝚄𝚁 𝙾𝚆𝙽 𝙾𝙿 [{BOT}](http://github.com/legendxop/legend-bot)  💠\n"   
+      await awake.delete() 
+      await borg.send_file(awake.chat_id, PHOTO,caption=ALIVE_MESSAGE)
    else:
-     await awake.edit("please add right value on ALIVE_PHOTTO var")
+      await awake.edit("please add right value on ALIVE_PHOTTO var")
 
 CMD_HELP.update(
     {

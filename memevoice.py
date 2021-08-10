@@ -61,12 +61,12 @@ async def nope(legendx22):
 
         "TrollVoiceBot", f"{(deEmojify(hell))}")
 
-    await troll[0].click(legendx22.chat_id,
+    await troll[0].click(
+        legendx22.chat_id,
+        reply_to=legendx22.reply_to_msg_id,
+        silent=bool(legendx22.is_reply),
+        hide_via=True,
+    )
 
-                            reply_to=legendx22.reply_to_msg_id,
-
-                            silent=True if legendx22.is_reply else False,
-
-                            hide_via=True)
 
     await legendx22.delete()
