@@ -46,7 +46,7 @@ async def inline_id_handler(event: events.InlineQuery.Event):
             shivamlog=builder.document("logs.txt",title="Logs",description="logs of 100+ lines use .paste to past in dogbin",text="use .paste to paste inn dogbin",buttons=[[Button.switch_inline("Search Again", query="logs", same_peer=True)],], )
             await event.answer([shivamlog])
             return os.remove('logs.txt')
-    if not event.query.user_id == me.id:
+    if event.query.user_id != me.id:
         resultm = builder.article(title="me not your bot",description="Mind Your Business",text="Hey U Must Use https://github.com/TeamExtremePro/Andencento UB ",buttons=[[Button.switch_inline("Search Again", query="logs", same_peer=True)],], )
         await event.answer([resultm])
         return

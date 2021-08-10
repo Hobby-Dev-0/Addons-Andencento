@@ -280,7 +280,7 @@ async def _(event):
                 progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
                     progress(d, t, mone, c_time, "trying to download")
                 )
-                
+
             )
         except Exception as e:  # pylint:disable=C0103,W0703
             await mone.edit(str(e))
@@ -304,11 +304,9 @@ async def _(event):
                 document_attributes = []
                 if single_file.endswith((".mp4", ".mp3", ".flac", ".webm")):
                     metadata = extractMetadata(createParser(single_file))
-                    duration = 0
                     width = 0
                     height = 0
-                    if metadata.has("duration"):
-                        duration = metadata.get('duration').seconds
+                    duration = metadata.get('duration').seconds if metadata.has("duration") else 0
                     if os.path.exists(thumb_image_path):
                         metadata = extractMetadata(createParser(thumb_image_path))
                         if metadata.has("width"):
@@ -394,11 +392,9 @@ async def _(event):
                 document_attributes = []
                 if single_file.endswith((".mp4", ".mp3", ".flac", ".webm")):
                     metadata = extractMetadata(createParser(single_file))
-                    duration = 0
                     width = 0
                     height = 0
-                    if metadata.has("duration"):
-                        duration = metadata.get('duration').seconds
+                    duration = metadata.get('duration').seconds if metadata.has("duration") else 0
                     if os.path.exists(thumb_image_path):
                         metadata = extractMetadata(createParser(thumb_image_path))
                         if metadata.has("width"):
@@ -492,11 +488,9 @@ async def _(event):
                 document_attributes = []
                 if single_file.endswith((".mp4", ".mp3", ".flac", ".webm")):
                     metadata = extractMetadata(createParser(single_file))
-                    duration = 0
                     width = 0
                     height = 0
-                    if metadata.has("duration"):
-                        duration = metadata.get('duration').seconds
+                    duration = metadata.get('duration').seconds if metadata.has("duration") else 0
                     if os.path.exists(thumb_image_path):
                         metadata = extractMetadata(createParser(thumb_image_path))
                         if metadata.has("width"):

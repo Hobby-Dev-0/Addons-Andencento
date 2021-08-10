@@ -31,7 +31,7 @@ async def _(event):
 
 
 @bot.on(admin_cmd(pattern=f"nehi$", outgoing=True))
-@bot.on(sudo_cmd(pattern=f"nehi$", allow_sudo=True))
+@bot.on(sudo_cmd(pattern='nehi$', allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return

@@ -23,46 +23,45 @@ if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
 
 @borg.on(admin_cmd(outgoing=True, pattern="pips(?: |$)(.*)"))
 async def pipcheck(pip):
-        pipmodule = pip.pattern_match.group(1)
-        if pipmodule:
-            await pip.edit("`Searching . . .`")
-            pipc = await asyncrunapp(
-                "pip3",
-                "search",
-                pipmodule,
-                stdout=asyncPIPE,
-                stderr=asyncPIPE,
-            )
+     pipmodule = pip.pattern_match.group(1)
+     if pipmodule:
+          await pip.edit("`Searching . . .`")
+          pipc = await asyncrunapp(
+              "pip3",
+              "search",
+              pipmodule,
+              stdout=asyncPIPE,
+              stderr=asyncPIPE,
+          )
 
-            stdout, stderr = await pipc.communicate()
-            pipout = str(stdout.decode().strip()) \
-                + str(stderr.decode().strip())
+          stdout, stderr = await pipc.communicate()
+          pipout = str(stdout.decode().strip()) \
+              + str(stderr.decode().strip())
 
-            if pipout:
-                if len(pipout) > 4096:
+          if pipout:
+               if len(pipout) > 4096:
                     await pip.edit("`Output too large, sending as file`")
-                    file = open("pips.txt", "w+")
-                    file.write(pipout)
-                    file.close()
+                    with open("pips.txt", "w+") as file:
+                         file.write(pipout)
                     await pip.client.send_file(
                         pip.chat_id,
                         "pips.txt",
                         reply_to=pip.id,
-			caption = pipmodule,
+                    caption = pipmodule,
                     )
                     os.remove("output.txt")
                     return
-                await pip.edit("**Query: **\n`"
-                               f"pip3 search {pipmodule}"
-                               "`\n**Result: **\n`"
-                               f"{pipout}"
-                               "`")
-            else:
-                await pip.edit("**Query: **\n`"
-                               f"pip3 search {pipmodule}"
-                               "`\n**Result: **\n`No Result Returned/False`")
-        else:
-            await pip.edit("`Use .help system to see an example`")
+               await pip.edit("**Query: **\n`"
+                              f"pip3 search {pipmodule}"
+                              "`\n**Result: **\n`"
+                              f"{pipout}"
+                              "`")
+          else:
+               await pip.edit("**Query: **\n`"
+                              f"pip3 search {pipmodule}"
+                              "`\n**Result: **\n`No Result Returned/False`")
+     else:
+          await pip.edit("`Use .help system to see an example`")
 	
 @borg.on(admin_cmd(pattern="suicide$"))
 async def _(event):

@@ -21,7 +21,7 @@ legendx22 = bot.uid
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit(f"Making A Shayri.......")
+    await event.edit('Making A Shayri.......')
     await asyncio.sleep(2)
     h=(random.randrange(1,58))
     if h==1:
@@ -37,7 +37,7 @@ async def _(event):
     if h==6:
         await event.edit(f"Dukh yeh nhi,\nKe koi Apna nhi....\n\nDukh Yeh Hai Ke\nKisi ne\n\n\n**APNA BANA KAR CHOR DIA**🙂💔\n\n\n✍️[{DEFAULTUSER}](tg://user?id={legendx22})")
     if h==7:
-        await event.edit(f"एक बार भूल से ही \nकहा होता \nकी हम किसी और के भी है \nखुदा कसम \nहम तेरे सायें से भी दूर रहते...🙂\n\n\n✍️[{DEFAULTUSER}](tg://user?id={legendx22})  ")    
+        await event.edit(f"एक बार भूल से ही \nकहा होता \nकी हम किसी और के भी है \nखुदा कसम \nहम तेरे सायें से भी दूर रहते...🙂\n\n\n✍️[{DEFAULTUSER}](tg://user?id={legendx22})  ")
     if h==8:
         await event.edit(f"Dosti Nibhate Nibhate \nUs Se Mohabbat Si Ho Gayi\n\nGam Hi Mile Sahi \nPar Chahat Si Ho Gayi\n\nKarte The Jo Baatain \nRaat Raat Bhar\nAaj Un Se Baat Karne Ki Khwahish Si Ho Gayi\n\nJee Nahi Sakte Ab Us Ke Bin\n**Us Ke Sath Rehne Ki Aadat Si Ho Gayi**\n\n\n✍️[{DEFAULTUSER}](tg://user?id={legendx22})")
     if h==9:
@@ -131,7 +131,7 @@ async def _(event):
     if h==53:
         await event.edit(f"सोचते तो तब भी थे हम \nतुम मेरे नही हो सकते !!\nअब भी यकीन कहाँ है \n के तुम कभी मेरे थे !!\n\n\n✍️ [{DEFAULTUSER}](tg://user?id={legendx22})")
     if h==54:
-        await event.edit(f"पगला है वो ,\nना जाने इतना क्यों प्यार करता है !!\nकुछ बातें मेरी \n  कहने से पहले ही समझ जाता है !! \n\n\n✍️ [{DEFAULTUSER}](tg://user?id={legendx22})")    
+        await event.edit(f"पगला है वो ,\nना जाने इतना क्यों प्यार करता है !!\nकुछ बातें मेरी \n  कहने से पहले ही समझ जाता है !! \n\n\n✍️ [{DEFAULTUSER}](tg://user?id={legendx22})")
     if h==55:
         await event.edit(f"आज कल हाल कुछ  \n Telephone booth की \nतरह हो गया है !!\n लोग आते है बात करते है ,\nऔर बस चले जाते है !\n\n\n✍️ [{DEFAULTUSER}](tg://user?id={legendx22})")
     if h==56:
@@ -139,15 +139,15 @@ async def _(event):
     if h==57:
         await event.edit(f"फर्क नही पड़ता सच मे ,\n कोई आये कोई जाए !!\nबस जो दिल को बार बार \n आदतें लग जाती है ना \nकिसी की ..!!\n बस छुड़ाने में कुछ देर लगती है !\n\n\n✍️ [{DEFAULTUSER}](tg://user?id={legendx22})")
     if h==58:
-        await event.edit(f"Not in mood. Sorry!!!!")
+        await event.edit('Not in mood. Sorry!!!!')
 
 @bot.on(admin_cmd(pattern=r"hflirt$", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit(f"Hey! Here's a fact about you......")
+    await event.edit("Hey! Here's a fact about you......")
     await asyncio.sleep(2.3)
-    h=(random.randrange(1,8)) 
+    h=(random.randrange(1,8))
     if h==1:
         await event.edit(f"Doctor Ne Advice Kia Hai Ki Sone Se Pahle Apki Pic Dekh Kar Sona Jaroori Hai, Warna Heart Attack Aa Sakta Hai.😨\n\n\n✍️ [{DEFAULTUSER}](tg://user?id={legendx22})")
     if h==2:
@@ -170,9 +170,9 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit(f"Hey! Here's a fact about you......")
+    await event.edit("Hey! Here's a fact about you......")
     await asyncio.sleep(2.3)
-    h=(random.randrange(1,12)) 
+    h=(random.randrange(1,12))
     if h==1:
         await event.edit(f"Your lips look lonely would they like to meet mine?\n\n\n✍️ [{DEFAULTUSER}](tg://user?id={legendx22})")
     if h==2:
@@ -203,9 +203,9 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit(f"🤙")
+    await event.edit('🤙')
     await asyncio.sleep(2)
-    h=(random.randrange(1,8)) 
+    h=(random.randrange(1,8))
     if h==1:
         await event.edit(f"Dil nhi karta ab\n kisi se dil lagane ko \n bohot aati hai tere jaise \n keh deta hu hoon laut jane ko.\n\n\n✍️ [{DEFAULTUSER}](tg://user?id={legendx22})")
     if h==2:
@@ -228,7 +228,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit(f"Hey! Read this and go🙂")
+    await event.edit('Hey! Read this and go🙂')
     await asyncio.sleep(2.3)
     h=(random.randrange(1,18))
     if h==1:

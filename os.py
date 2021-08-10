@@ -8,7 +8,6 @@ from uniborg.util import admin_cmd
 
 
 @borg.on(admin_cmd(pattern=r"macos"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -17,12 +16,12 @@ async def _(event):
 
     animation_interval = 0.5
 
-    animation_ttl = range(0, 11)
+    animation_ttl = range(11)
 
     await event.edit("Mac")
 
     animation_chars = [
-        
+
             "`Connecting To Hackintosh...`",
             "`Initiating Hackintosh Login.`",
             "`Loading Hackintosh... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
@@ -44,7 +43,6 @@ async def _(event):
 
 
 @borg.on(admin_cmd(pattern=r"windows"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -53,12 +51,12 @@ async def _(event):
 
     animation_interval = 0.5
 
-    animation_ttl = range(0, 11)
+    animation_ttl = range(11)
 
     await event.edit("Windows")
 
     animation_chars = [
-        
+
             "`Connecting To Windows 10...`",
             "`Initiating Windows 10 Login.`",
             "`Loading Windows 10... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
@@ -81,7 +79,6 @@ async def _(event):
 
 
 @borg.on(admin_cmd(pattern=r"linux"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -90,12 +87,12 @@ async def _(event):
 
     animation_interval = 0.5
 
-    animation_ttl = range(0, 11)
+    animation_ttl = range(11)
 
     await event.edit("Linux")
 
     animation_chars = [
-        
+
             "`Connecting To Linux...`",
             "`Initiating Linux Login.`",
             "`Loading Linux... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ `",
@@ -117,7 +114,6 @@ async def _(event):
 
 
 @borg.on(admin_cmd(pattern=r"stock"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -126,12 +122,12 @@ async def _(event):
 
     animation_interval = 0.5
 
-    animation_ttl = range(0, 11)
+    animation_ttl = range(11)
 
     await event.edit("Stock")
 
     animation_chars = [
-        
+
             "`Connecting To Symbian OS...`",
             "`Initiating Symbian OS Login.`",
             "`Loading Symbian OS... 0%\n█████████████████████████ `",

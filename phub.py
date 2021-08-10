@@ -8,7 +8,6 @@ from uniborg.util import admin_cmd
 
 
 @borg.on(admin_cmd(pattern="phub"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -17,7 +16,7 @@ async def _(event):
 
     animation_interval = 0.5
 
-    animation_ttl = range(0, 101)
+    animation_ttl = range(101)
 
     await event.edit("phub")
 
@@ -30,13 +29,13 @@ async def _(event):
             "POR_",
 
             "PORN_",
-            
+
             "PORNH_",
-            
+
             "PORNHU_",
-            
+
            "PORNHUB_", 
-           
+
            "PORNHUB",
 
         ]
@@ -49,7 +48,6 @@ async def _(event):
 
 
 @borg.on(admin_cmd(pattern=r"amore"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -58,7 +56,7 @@ async def _(event):
 
     animation_interval = 0.5
 
-    animation_ttl = range(0, 101)
+    animation_ttl = range(101)
 
     await event.edit("amore")
 
@@ -71,11 +69,11 @@ async def _(event):
             "AMO_",
 
             "AMOR_",
-            
+
             "AMORE_",
-            
+
             "AMORE❤_",
-            
+
             ".-.",
 
         ]
@@ -98,7 +96,6 @@ import asyncio
 
 
 @borg.on(admin_cmd(pattern=r"sexy"))
-
 async def _(event):
 
     if event.fwd_from:
@@ -107,7 +104,7 @@ async def _(event):
 
     animation_interval = 0.5
 
-    animation_ttl = range(0, 101)
+    animation_ttl = range(101)
 
     await event.edit("Sexy")
 
@@ -120,11 +117,11 @@ async def _(event):
             "SEX_",
 
             "SEXY_",
-            
+
             "SEXY👄_",
-            
+
             "SEXY👄",
-            
+
         ]
 
     for i in animation_ttl:

@@ -58,7 +58,7 @@ if 1 == 1:
     client = borg
 
     @borg.on(admin_cmd(pattern="chat(.*)"))
-    async def quotecmd(message):  # noqa: C901
+    async def quotecmd(message):    # noqa: C901
         """Quote a message.
         Usage: .quote [template]
         If template is missing, possible templates are fetched."""
@@ -153,23 +153,22 @@ if 1 == 1:
             else:
                 raise ValueError("Invalid response from server", resp)
         elif resp["status"] == 404:
-            if resp["message"] == "ERROR_TEMPLATE_NOT_FOUND":
-                newreq = requests.post(config["api_url"] + "/api/v1/getalltemplates", data={
-                    "token": config["api_token"]
-                })
-                newreq = newreq.json()
-
-                if newreq["status"] == "NOT_ENOUGH_PERMISSIONS":
-                    return await message.respond(strings["not_enough_permissions"])
-                elif newreq["status"] == "SUCCESS":
-                    templates = strings["delimiter"].join(newreq["message"])
-                    return await message.respond(strings["templates"].format(templates))
-                elif newreq["status"] == "INVALID_TOKEN":
-                    return await message.respond(strings["invalid_token"])
-                else:
-                    raise ValueError("Invalid response from server", newreq)
-            else:
+            if resp["message"] != "ERROR_TEMPLATE_NOT_FOUND":
                 raise ValueError("Invalid response from server", resp)
+            newreq = requests.post(config["api_url"] + "/api/v1/getalltemplates", data={
+                "token": config["api_token"]
+            })
+            newreq = newreq.json()
+
+            if newreq["status"] == "NOT_ENOUGH_PERMISSIONS":
+                return await message.respond(strings["not_enough_permissions"])
+            elif newreq["status"] == "SUCCESS":
+                templates = strings["delimiter"].join(newreq["message"])
+                return await message.respond(strings["templates"].format(templates))
+            elif newreq["status"] == "INVALID_TOKEN":
+                return await message.respond(strings["invalid_token"])
+            else:
+                raise ValueError("Invalid response from server", newreq)
         elif resp["status"] != 200:
             raise ValueError("Invalid response from server", resp)
 

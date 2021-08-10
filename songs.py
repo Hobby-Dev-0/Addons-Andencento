@@ -97,12 +97,11 @@ from youtube_dl.utils import (DownloadError, ContentTooShortError,
 
 try:
 
-   from youtubesearchpython import SearchVideos 
+    from youtubesearchpython import SearchVideos 
 
 except:
-	os.system("pip install pip install youtube-search-python")
-	from youtubesearchpython import SearchVideos 
-	pass
+    os.system("pip install pip install youtube-search-python")
+    from youtubesearchpython import SearchVideos
 
 
 @borg.on(admin_cmd(pattern="song(?: |$)(.*)"))

@@ -51,7 +51,6 @@ async def formatJSON(outData):
     res = list(jsonData.keys())
     if "errors" in res:
         msg += f"**Error** : `{jsonData['errors'][0]['message']}`"
-        return msg
     else:
         jsonData = jsonData['data']['Media']
         if "bannerImage" in jsonData.keys():
@@ -73,7 +72,8 @@ async def formatJSON(outData):
         #https://t.me/catuserbot_support/19496
         cat = f"{jsonData['description']}"
         msg += " __" + re.sub("<br>", '\n', cat) +"__"
-        return msg
+
+    return msg
         
 @bot.on(admin_cmd(pattern="anilist (.*)"))
 @bot.on(sudo_cmd(pattern="anilist (.*)", allow_sudo=True))

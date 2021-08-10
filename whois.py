@@ -48,7 +48,7 @@ async def _(event):
         return
     replied_user, error_i_a = await get_full_user(event)
     if replied_user is None:
-        return await edit_or_reply(event, f"`{str(error_i_a)}`")
+        return await edit_or_reply(event, f'`{error_i_a}`')
     user_id = replied_user.user.id
     # some people have weird HTML in their names
     first_name = html.escape(replied_user.user.first_name)
@@ -242,7 +242,7 @@ async def fetch_info(replied_user, event):
     caption += f"🌐Is Verified by Telegram: {verified}\n\n"
     caption += f"✍️Bio: \n<code>{user_bio}</code>\n\n"
     caption += f"👥Common Chats with this user: {common_chat}\n"
-    caption += f"🔗Permanent Link To Profile: "
+    caption += '🔗Permanent Link To Profile: '
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
     return photo, caption
 
@@ -266,7 +266,7 @@ async def get_user_from_event(event):
     """ Get the user from argument or replied message. """
     args = event.pattern_match.group(1).split(":", 1)
     extra = None
-    if event.reply_to_msg_id and not len(args) == 2:
+    if event.reply_to_msg_id and len(args) != 2:
         previous_message = await event.get_reply_message()
         user_obj = await event.client.get_entity(previous_message.sender_id)
         extra = event.pattern_match.group(1)

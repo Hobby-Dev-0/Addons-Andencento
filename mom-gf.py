@@ -10,9 +10,9 @@ async def _(event):
     if event.fwd_from:
         return
     animation_interval = 5
-    animation_ttl = range(0, 21)  
+    animation_ttl = range(21)
     animation_chars = [
-        
+
             "`Ruk jaa , Abhi teri GF ko Fuck karta hu `",
             "`Making your Gf warm 🔥`",
             "`Pressing her boobs 🤚😘`",
@@ -45,9 +45,9 @@ async def _(event):
     if event.fwd_from:
         return
     animation_interval = 5
-    animation_ttl = range(0, 21)  
+    animation_ttl = range(21)
     animation_chars = [
-        
+
             "`Ruk jaa , Abhi teri Mom ko Fuck karta hu `",
             "`Making your Mom warm 🔥`",
             "`Pressing her boobs 🤚😘`",

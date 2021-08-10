@@ -363,7 +363,7 @@ async def _(event):
         await event.edit(animation_chars[i % 11])
 
 
-@bot.on(admin_cmd(pattern=f"squ$", outgoing=True))
+@bot.on(admin_cmd(pattern='squ$', outgoing=True))
 @bot.on(sudo_cmd(pattern="squ$", allow_sudo=True))
 async def _(event):
     if event.fwd_from:

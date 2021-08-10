@@ -25,13 +25,11 @@ async def _(dc):
 
         pass
 
-    msg = ""
     masg = await dc.get_reply_message()  # ghanta😒😒
     if dc.reply_to_msg_id:
         await borg.send_message(chat_id, masg)
         await dc.edit("⚜️Message Delivered! Sar⚜️")
-    for i in c[1:]:
-        msg += i + " " 
+    msg = "".join(i + " " for i in c[1:])
     if msg == "":  # hoho
         return
     try:

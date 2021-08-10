@@ -42,9 +42,9 @@ async def _(event):
     stcr3 = await event.client.send_file(
         event.chat_id, "CAADAQADOwADnjOcH77v3Ap51R7gAg"
     )
-    text4 = await event.reply(f"**Others :** Where???🤨 ")
+    text4 = await event.reply('**Others :** Where???🤨 ')
     await asyncio.sleep(2)
-    await text4.edit(f"**Others :** Who??🤔 ")
+    await text4.edit('**Others :** Who??🤔 ')
     await asyncio.sleep(2)
     await text4.edit(
         f"**[{DEFAULTUSER}]({USERNAME}) :** Its {name} , I saw {name}  using🤨 vent,"
